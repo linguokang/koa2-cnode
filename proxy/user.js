@@ -19,7 +19,16 @@ exports.createUser = async(user)=>{
     await User.create(user)
 }
 
-
+exports.getUserByEmail = async(email)=>{
+    if(!email){
+        return {}
+    }
+    return await User.findOne({
+        where:{
+            email:email
+        }
+    })
+}
 
 
 

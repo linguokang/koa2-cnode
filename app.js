@@ -5,6 +5,8 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const session = require('koa-session2')
+// import session from "koa-session2";
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -35,6 +37,12 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+
+app.use(session({
+  //store: new Store(),
+  //cookie的保存期为一天
+  maxAge: 1000 * 60 * 60 * 24,
+}));
 
 // error-handling
 app.on('error', (err, ctx) => {

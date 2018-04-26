@@ -11,6 +11,10 @@ const User = sequlize.define('user',{
     password:{
         type:Sequlize.STRING,
         allowNull:false
+    },
+    email:{
+        type:Sequlize.STRING,
+        allowNull:false
     }
 })
 
