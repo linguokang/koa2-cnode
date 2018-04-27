@@ -21,8 +21,6 @@ exports.login = async(ctx) => {
         ctx.body = message;
         return
     }
-    console.log('+++++++++++++++++++++++++++++++')
-    console.log(userInfo)
     ctx.session.user = userInfo;
 
     message.result = true;

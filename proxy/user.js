@@ -30,7 +30,16 @@ exports.getUserByEmail = async(email)=>{
     })
 }
 
-
+exports.getUserById = async(id)=>{
+    if(!id){
+        return {}
+    }
+    return await User.findOne({
+        where:{
+            id:id
+        }
+    })
+}
 
 
 
